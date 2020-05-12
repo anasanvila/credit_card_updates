@@ -3,8 +3,11 @@ import {FormWrapper, InputBox, Column, Img, SubmitButton, Row, Message, LabelSty
 import yes from '../images/e.svg'
 import no from '../images/g.svg'
 import submitImg from '../images/check.png'
+import MaskInput from 'react-maskinput';
 
-const FormDesign = () => {
+class FormDesign extends React.Component {
+
+    render(){
     return (
         <FormWrapper>
             <form>
@@ -17,12 +20,16 @@ const FormDesign = () => {
                     </Row>
                     <Row>
                         <LabelStyle>CARD NUM:</LabelStyle>
-                        <InputBox><input type="number"  name="num" /></InputBox>
+                        <InputBox>
+                            <MaskInput alwaysShowMask maskChar="X" mask="0000  0000  0000  0000" size={20} onChange={this.onChange}/>
+                        </InputBox>
                         <ValidationStatusImg background={no}/>
                     </Row>
                     <Row>
                         <LabelStyle>EXPIRES ON:</LabelStyle>
-                        <InputBox><input type="date"  name="exp" /></InputBox>
+                        <InputBox>
+                            <MaskInput alwaysShowMask onChange={this.onChange2} maskString={'MM.YY'} mask={'00/00'} size={20} />
+                        </InputBox>
                         <ValidationStatusImg background={yes}/>
                     </Row>
                 </div>
@@ -36,6 +43,7 @@ const FormDesign = () => {
             <Message>abc</Message>
         </FormWrapper>
       );
+}
 }
  
 export default FormDesign;

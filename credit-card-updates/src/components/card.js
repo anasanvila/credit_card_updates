@@ -10,7 +10,7 @@ import BigCardDesign from './bigCardDesign'
 import {cardsJson} from '../cardsJson'
 
 const Card = ({match}) => {
-  const card = cardsJson.find(c=>c.id==match.params.cardId);
+  const card = cardsJson.find(c=>c.id===match.params.cardId);
     return (
       <React.Fragment>
         <Row>

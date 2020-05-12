@@ -4,6 +4,7 @@ export const Space=styled.div`
     padding-top:1px;
     margin:0px;
     margin-top:-1px;
+    width:649px;
 `
 export const card={
     name: '',
