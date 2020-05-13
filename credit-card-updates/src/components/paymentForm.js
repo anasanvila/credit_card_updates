@@ -40,8 +40,8 @@ export default function PaymentForm({saveCardData}) {
             >
             <Field name="name">
                     {({
-                          field, // { name, value, onChange, onBlur }
-                          form: {touched, errors}, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
+                          field,
+                          form: {touched, errors}, 
                           meta,
                       }) => (
                         <div>
