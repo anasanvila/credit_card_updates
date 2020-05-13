@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Route, Switch} from 'react-router-dom';
+import {Link, Route, Switch, Redirect, useLocation} from 'react-router-dom';
 import Card from './card';
 import AddCard from './addCard'
 import SmallCard from './smallCard'
@@ -18,50 +18,19 @@ class  Cards extends React.Component{
   constructor(props){
       super(props);
       this.state={
-        cardsArray:[
-            {
-              name: 'Ana Djordjevic',
-              id: 0,
-              cardNumber:'1456 1298 6574 1287',
-              expiryDate:"02/22",
-              type:"visa"
-            },
-            {
-              name: 'Aleksandra Djordjevic',
-              id: 1,
-              cardNumber:'1456 1298 6574 1287',
-              expiryDate:"08/21",
-              type:"masterCard"
-            },
-            {
-              name: 'Jane Doe',
-              id: 2,
-              cardNumber:'1456 1298 6574 1287',
-              expiryDate:"06/22",
-              type:"discover"
-             },
-        
-          ],
-        counterId:3,
-        card:{
-            id:2,
-            name:'',
-            cardNumber:'',
-            expiryDate:'',
-            type:'',
-            newCard:false,
-        }
+        cardsArray:[],
+        counterId:0,
+        selectedCardId:0
       }
   }
   saveCardData = (data)=>{
       console.log("data=",data);
-      let cardData={
+      const cardData={
         id:data.newCard===true?this.state.counterId:data.id,
         name:data.name,
         type:data.type,
         cardNumber:data.cardNumber,
         expiryDate:data.expiryDate,
-        newCard:data.newCard,
       }
       console.log("cardData",cardData)
       this.setState(prevState=>{
@@ -77,18 +46,25 @@ class  Cards extends React.Component{
             }
       })
   }
-  setId=(id)=>{
-      console.log("id",id)
-    this.setState(prevState=>({
-        card:{
-            ...prevState.card,
-            id:id
+  remove = () => {
+      let newCardsArray;
+      this.setState(prevState=>{
+        newCardsArray=[...prevState.cardsArray].filter(card=>card.id!==this.state.selectedCardId)
+        return {
+            cardsArray: newCardsArray
         }
-    }))
+      })
+  }
+  removeAll = () => {
+      this.setState({
+          cardsArray:[]
+      })
+  }
+  setId=(id)=>{
+    this.setState({selectedCardId:id})
   }
   render(){
     const {match} = this.props;
-    console.log("data: ",this.state.data)
   return (
     <Wrapper>
         <WrapperForCards>
@@ -112,7 +88,7 @@ class  Cards extends React.Component{
         <WrapperForChosenCard>
             <Switch>
                 <Route path={`${match.path}/add`} component={()=><AddCard cardId={this.state.counterId} saveCardData={this.saveCardData}/>}/>
-                <Route path={`${match.path}/:cardId`} component={props=><Card {...props} card={this.state.cardsArray.find(c=>c.id===this.state.card.id)}
+                <Route path={`${match.path}/:cardId`} component={props=><Card {...props} remove={this.remove} removeAll={this.removeAll} card={this.state.cardsArray.find(c=>c.id===this.state.selectedCardId)}
                 saveCardData={this.saveCardData}/>}/>
             </Switch>
         </WrapperForChosenCard>

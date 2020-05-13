@@ -12,10 +12,18 @@ class AddCard extends React.Component {
         data.type=defineType(data.cardNumber);
         this.props.saveCardData(data);
     }
+    emptyCard = {
+        id:0,
+        name:'Name',
+        cardNumber:'0000 0000 0000 0000',
+        expiryDate:'00/00',
+        type:'',
+        newCard:false,
+    }
     render(){
     return (
         <React.Fragment>
-            <BigCardDesign card={card} />
+            <BigCardDesign card={this.emptyCard} />
             <Space/>
             <PaymentsWrapper>
                 <Label>ADD NAME, CARD NUMBER AND EXPIRE DATE</Label>

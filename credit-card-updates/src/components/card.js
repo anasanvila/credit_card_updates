@@ -12,8 +12,10 @@ class Card extends React.Component{
   constructor(props){
     super(props)
   }
+
   render(){
   const card = this.props.card;
+  console.log("match in cards=",this.props.match)
     return (
       <React.Fragment>
         <Row>
@@ -22,13 +24,17 @@ class Card extends React.Component{
             <Link to={`${this.props.match.url}/edit`}>
               <img src={edit} alt="edit" height="35" />EDIT
             </Link>
-            <ButtonWrapper>
-              <img src={remove} alt="remove" height="35" />
+            <ButtonWrapper onClick={this.props.remove} >
+              <Link to={`/cards`}>
+                <img src={remove} alt="remove" height="35" />
               REMOVE
+              </Link>
             </ButtonWrapper>
-            <ButtonWrapper>
-              <img src={deleteAll} alt="clear-all" height="35"/>
+            <ButtonWrapper onClick={this.props.removeAll}>
+              <Link to={`/cards`}>
+                <img src={deleteAll} alt="clear-all" height="35"/>
               CLEAR ALL
+              </Link>
             </ButtonWrapper>
           </EditRemoveButtons>
         </Row>
