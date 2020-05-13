@@ -1,6 +1,6 @@
 import React from 'react';
 import PaymentForm from './paymentForm'
-import PropTypes, { number } from 'prop-types'
+import PropTypes from 'prop-types'
 import {defineType} from './utils.js'
 import {PaymentsWrapper, Label} from '../styles/paymentFormStyle'
 
