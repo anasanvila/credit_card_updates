@@ -1,5 +1,5 @@
 import React from 'react';
-import { paymentStyle, ErrorMessage } from '../styles/paymentFormStyle' 
+import { paymentStyle } from '../styles/paymentFormStyle' 
 import { Formik, Field } from 'formik';
 import { PaymentInputsWrapper, usePaymentInputs } from 'react-payment-inputs';
 

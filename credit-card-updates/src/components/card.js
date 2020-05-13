@@ -9,10 +9,6 @@ import deleteAll from '../images/deleteAll.png'
 import BigCardDesign from './bigCardDesign'
 
 class Card extends React.Component{
-  constructor(props){
-    super(props)
-  }
-
   render(){
   const card = this.props.card;
     return (
