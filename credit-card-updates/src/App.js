@@ -4,12 +4,11 @@ import {
   Route,
   Link,
 } from 'react-router-dom'
-import  Cards from './components/cards'
+import Cards from './components/cards'
 import Home from './components/home'
 import { LinkStyle, H1, Hr } from './styles/appStyle'
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
       <Router>
         <div style={{width: 1000, margin: '0 auto'}}>
@@ -21,7 +20,7 @@ class App extends Component {
         </div>
       </Router>
     )
-  }
 }
+
 
 export default App

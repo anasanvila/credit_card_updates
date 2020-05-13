@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes, { number } from 'prop-types'
 import BigCardDesign from './bigCardDesign'
 import {Space} from '../styles/addCardStyle'
 import {defineType} from './utils'
@@ -32,6 +33,11 @@ class AddCard extends React.Component {
         </React.Fragment>
     );
     }
+}
+
+AddCard.propTypes = {
+    cardId: PropTypes.number,
+    saveCardData: PropTypes.func
 }
  
 export default AddCard;

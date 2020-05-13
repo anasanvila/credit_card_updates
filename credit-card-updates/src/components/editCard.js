@@ -1,5 +1,6 @@
 import React from 'react';
 import PaymentForm from './paymentForm'
+import PropTypes, { number } from 'prop-types'
 import {defineType} from './utils.js'
 import {PaymentsWrapper, Label} from '../styles/paymentFormStyle'
 
@@ -19,5 +20,14 @@ class EditCard extends React.Component {
     );
     }
 }
- 
+
+EditCard.propTypes = {
+    cardId: PropTypes.number,
+    history: PropTypes.object,
+    match: PropTypes.object,
+    location: PropTypes.object,
+    saveCardData: PropTypes.func,
+    staticContext: PropTypes.any
+}
+
 export default EditCard;

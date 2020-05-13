@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import { paymentStyle } from '../styles/paymentFormStyle' 
 import { Formik, Field } from 'formik';
 import { PaymentInputsWrapper, usePaymentInputs } from 'react-payment-inputs';
@@ -18,7 +19,7 @@ export default function PaymentForm({saveCardData}) {
         expiryDate: '',
       }}
       onSubmit={data => {
-        if (data.name) return saveCardData(data)
+        if ((data.name) && (/^[a-zA-Z ]+$/.test( data.name))) return saveCardData(data)
       }}
       validate={() => {
         let errors = {};
@@ -71,4 +72,8 @@ export default function PaymentForm({saveCardData}) {
       )}
     </Formik>
   );
+}
+
+PaymentForm.propTypes = {
+  saveCardData: PropTypes.func
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link, Route} from "react-router-dom"
+import PropTypes from "prop-types"
 import EditCard from './editCard'
 import {Row,ButtonWrapper,EditRemoveButtons} from '../styles/buttonsStyle'
 import edit from '../images/edit.png'
@@ -37,6 +38,17 @@ class Card extends React.Component{
         </React.Fragment>
       );
     }
+}
+
+Card.propTypes = {
+  history: PropTypes.object,
+  location: PropTypes.object,
+  match: PropTypes.object,
+  remove: PropTypes.func,
+  removeAll: PropTypes.func,
+  card: PropTypes.object,
+  saveCardData: PropTypes.func,
+  staticContext: PropTypes.any
 }
  
 export default Card;

@@ -1,6 +1,7 @@
 import React from 'react';
-import {Link, Route, Switch} from 'react-router-dom';
-import Card from './card';
+import {Link, Route, Switch} from 'react-router-dom'
+import PropTypes from 'prop-types'
+import Card from './card'
 import AddCard from './addCard'
 import SmallCard from './smallCard'
 import addCard from '../images/add.png'
@@ -14,7 +15,7 @@ import {
 } from '../styles/cardsStyle'
 import card from '../images/money.png'
 
-class  Cards extends React.Component{
+class Cards extends React.Component{
   constructor(props){
       super(props);
       this.state={
@@ -24,7 +25,6 @@ class  Cards extends React.Component{
       }
   }
   saveCardData = (data)=>{
-      console.log("data=",data);
       const cardData={
         id:data.newCard===true?this.state.counterId:data.id,
         name:data.name,
@@ -32,7 +32,6 @@ class  Cards extends React.Component{
         cardNumber:data.cardNumber,
         expiryDate:data.expiryDate,
       }
-      console.log("cardData",cardData)
       this.setState(prevState=>{
           let newCardsArray;
           if (data.newCard===true) newCardsArray = [ ...prevState.cardsArray,cardData] 
@@ -107,6 +106,13 @@ class  Cards extends React.Component{
       </Wrapper>
   )
 }
+}
+
+Cards.propTypes = {
+  match: PropTypes.object,
+  history: PropTypes.object,
+  location: PropTypes.object,
+  staticContext: PropTypes.any
 }
  
 export default Cards;

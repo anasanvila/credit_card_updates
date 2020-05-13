@@ -27,6 +27,7 @@ export const Name=styled.div`
     position:absolute;
     bottom:30px;
     font-size:14px;
+    text-transform: uppercase;
 `
 export const Date=styled.div`
     position:absolute;

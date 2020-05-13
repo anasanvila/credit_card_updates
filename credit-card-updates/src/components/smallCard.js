@@ -1,5 +1,6 @@
 import React from 'react';
 import visa from '../images/visa.png'
+import PropTypes from 'prop-types'
 import mastercard from '../images/mastercard.png'
 import discover from '../images/discover.png'
 import {SmallCardStyle, Type, Num, Name, Date, ID
@@ -23,5 +24,10 @@ const SmallCard = ({card, setId}) => {
         <ID>( {card.id} )</ID>  
     </SmallCardStyle>);
 }
- 
+
+SmallCard.propTypes = {
+    card: PropTypes.object,
+    setId: PropTypes.func
+}
+
 export default SmallCard;

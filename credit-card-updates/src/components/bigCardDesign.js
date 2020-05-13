@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import chip from '../images/chip.jpg'
 import visa from '../images/visa.png'
 import mastercard from '../images/mastercard.png'
@@ -12,6 +13,7 @@ const BigCardDesign = ({card}) => {
       'masterCard':mastercard,
       'discover':discover
   }
+
     return (
     <BigCardStyle>
         <ID>( {card.id} )</ID>
@@ -26,5 +28,9 @@ const BigCardDesign = ({card}) => {
     </BigCardStyle>
     )
 }
- 
+
+BigCardDesign.propTypes = {
+    card: PropTypes.object
+}
+
 export default BigCardDesign;
