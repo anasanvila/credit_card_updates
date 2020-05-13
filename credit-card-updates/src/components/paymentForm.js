@@ -17,7 +17,9 @@ export default function PaymentForm({saveCardData}) {
         cardNumber: '',
         expiryDate: '',
       }}
-      onSubmit={data => saveCardData(data)}
+      onSubmit={data => {
+        if (data.name) return saveCardData(data)
+      }}
       validate={() => {
         let errors = {};
         if (meta.erroredInputs.cardNumber) {
