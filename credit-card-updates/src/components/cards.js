@@ -56,7 +56,8 @@ class Cards extends React.Component{
   }
   removeAll = () => {
       this.setState({
-          cardsArray:[]
+          cardsArray:[],
+          counterId: 0
       })
   }
   setId=(id)=>{
@@ -70,9 +71,17 @@ class Cards extends React.Component{
             cardsArray:[...tempArr]
         })
     }
+    if (localStorage["counterId"]) {
+        let id = localStorage.getItem("counterId");
+        let counter = JSON.parse(id)
+        this.setState({
+          counterId: counter,
+        })
+    }
   }
   componentDidUpdate(){
       localStorage.setItem("cards", JSON.stringify(this.state.cardsArray))
+      localStorage.setItem("counterId", JSON.stringify(this.state.counterId))
   }
   render(){
     const {match} = this.props;
