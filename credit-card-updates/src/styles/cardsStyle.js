@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const WrapperForCards=styled.div`
     margin:5px 10px 0 0;
     background-color:#c0f1e0;
+    width:100%;
 `
 export const WrapperForChosenCard=styled.div`
     margin:5px 0 0 10px;

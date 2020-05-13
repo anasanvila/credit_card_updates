@@ -63,6 +63,9 @@ class  Cards extends React.Component{
   setId=(id)=>{
     this.setState({selectedCardId:id})
   }
+  componentDidUpdate(){
+      localStorage.setItem("cards", JSON.stringify(this.state.cardsArray))
+  }
   render(){
     const {match} = this.props;
   return (
