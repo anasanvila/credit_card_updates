@@ -28,7 +28,6 @@ export default function PaymentForm({saveCardData}) {
         if (meta.erroredInputs.expiryDate) {
           errors.expiryDate = meta.erroredInputs.expiryDate;
         }
-        console.log("err",errors);
         return errors;
       }}
     >
