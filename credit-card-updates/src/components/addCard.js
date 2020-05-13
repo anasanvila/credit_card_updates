@@ -1,6 +1,6 @@
 import React from 'react';
 import BigCardDesign from './bigCardDesign'
-import {Space, card} from '../styles/addCardStyle'
+import {Space} from '../styles/addCardStyle'
 import {defineType} from './utils'
 import PaymentForm from './paymentForm'
 import {PaymentsWrapper, Label} from '../styles/paymentFormStyle'

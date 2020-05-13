@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const defineType=(cardNumber)=>{
     let char=cardNumber.charAt(0);
     let type;

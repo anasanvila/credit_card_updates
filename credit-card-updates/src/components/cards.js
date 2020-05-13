@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Route, Switch, Redirect, useLocation} from 'react-router-dom';
+import {Link, Route, Switch} from 'react-router-dom';
 import Card from './card';
 import AddCard from './addCard'
 import SmallCard from './smallCard'

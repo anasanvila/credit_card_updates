@@ -15,7 +15,6 @@ class Card extends React.Component{
 
   render(){
   const card = this.props.card;
-  console.log("match in cards=",this.props.match)
     return (
       <React.Fragment>
         <Row>

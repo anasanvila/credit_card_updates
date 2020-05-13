@@ -7,7 +7,6 @@ import { BigCardStyle,Type,Num,Name,Date,Chip,
     ID} from '../styles/bigCardStyle'
 
 const BigCardDesign = ({card}) => {
-    console.log("card from Bigcard", card)
   const cardType = {
       'visa':visa,
       'masterCard':mastercard,
