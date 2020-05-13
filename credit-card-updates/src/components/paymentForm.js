@@ -1,5 +1,5 @@
 import React from 'react';
-import { paymentStyle } from '../styles/paymentFormStyle' 
+import { paymentStyle, ErrorMessage } from '../styles/paymentFormStyle' 
 import { Formik, Field } from 'formik';
 import { PaymentInputsWrapper, usePaymentInputs } from 'react-payment-inputs';
 
@@ -22,12 +22,14 @@ export default function PaymentForm({saveCardData}) {
       }}
       validate={() => {
         let errors = {};
+        if (!username) errors.name = 'Enter a valid'
         if (meta.erroredInputs.cardNumber) {
           errors.cardNumber = meta.erroredInputs.cardNumber;
         }
         if (meta.erroredInputs.expiryDate) {
           errors.expiryDate = meta.erroredInputs.expiryDate;
         }
+        console.log("err",errors);
         return errors;
       }}
     >
@@ -45,9 +47,7 @@ export default function PaymentForm({saveCardData}) {
                       }) => (
                         <div>
                             <input type="text" placeholder="Name" {...field} />
-                            {meta.touched && meta.error && (
-                                <div className="error">{meta.error}</div>
-                            )}
+                            {(!username)? <ErrorMessage>Enter a valid name</ErrorMessage>:''}
                         </div>
                     )}
                 </Field>

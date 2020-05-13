@@ -30,3 +30,7 @@ export const Label = styled.div`
     top:-30px;
     left:8px;
 `
+export const ErrorMessage = styled.div`
+    position:absolute;
+    top:50px;
+`
