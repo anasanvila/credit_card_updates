@@ -16,7 +16,7 @@ export const Wrapper=styled.div`
     width:90%;
     margin-left:0px;
 `
-export const OtherCards=styled.div`
+export const CardsContainer=styled.div`
     overflow-y:scroll;
     height:51vh;
 `

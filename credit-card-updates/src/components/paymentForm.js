@@ -1,14 +1,14 @@
 import React from 'react';
-import {css} from 'styled-components'
-import { Formik, Field} from 'formik';
+import { paymentStyle } from '../styles/paymentFormStyle' 
+import { Formik, Field } from 'formik';
 import { PaymentInputsWrapper, usePaymentInputs } from 'react-payment-inputs';
 
-export default function PaymentForm() {
+export default function PaymentForm({saveCardData}) {
   const {
     meta,
     getCardNumberProps,
     getExpiryDateProps,
-    wrapperProps 
+    wrapperProps,
   } = usePaymentInputs();
  
   return (
@@ -17,7 +17,7 @@ export default function PaymentForm() {
         cardNumber: '',
         expiryDate: '',
       }}
-      onSubmit={data => console.log(data)}
+      onSubmit={data => saveCardData(data)}
       validate={() => {
         let errors = {};
         if (meta.erroredInputs.cardNumber) {
@@ -33,26 +33,9 @@ export default function PaymentForm() {
         <form onSubmit={handleSubmit}>
           <div>
             <PaymentInputsWrapper {...wrapperProps}
-              styles={{
-                inputWrapper:{
-                  base:css`
-                    width:100%;
-                    border:none;
-                    & :  nth-child(1) {
-                      margin-top:-3px;
-                      width:280px;
-                    }
-                  `
-                },
-                input: {
-                  base:css`
-                    border:none;
-                    text-transform:uppercase;
-                  `
-                }
-              }}
+              styles={paymentStyle}
             >
-            <Field name="Name">
+            <Field name="name">
                     {({
                           field, // { name, value, onChange, onBlur }
                           form: {touched, errors}, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.

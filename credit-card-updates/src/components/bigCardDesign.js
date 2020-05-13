@@ -20,7 +20,7 @@ const BigCardDesign = ({card}) => {
         <Chip><img src={chip} alt="chip" width="60"/></Chip>
         <Num>{card.cardNumber}</Num>
         <Name>{card.name}</Name> 
-        <Date>{card.date}</Date>  
+        <Date>{card.expireDate}</Date>  
     </BigCardStyle>
     )
 }

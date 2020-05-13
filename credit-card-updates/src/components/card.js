@@ -7,16 +7,19 @@ import edit from '../images/edit.png'
 import remove from '../images/remove.png'
 import deleteAll from '../images/deleteAll.png'
 import BigCardDesign from './bigCardDesign'
-import {cardsJson} from '../cardsJson'
 
-const Card = ({match}) => {
-  const card = cardsJson.find(c=>c.id===match.params.cardId);
+class Card extends React.Component{
+  constructor(props){
+    super(props)
+  }
+  render(){
+  const card = this.props.card;
     return (
       <React.Fragment>
         <Row>
           <BigCardDesign card={card} />
           <EditRemoveButtons>
-            <Link to={`${match.url}/edit`}>
+            <Link to={`${this.props.match.url}/edit`}>
               <img src={edit} alt="edit" height="35" />EDIT
             </Link>
             <ButtonWrapper>
@@ -29,9 +32,10 @@ const Card = ({match}) => {
             </ButtonWrapper>
           </EditRemoveButtons>
         </Row>
-        <Route path={`${match.path}/edit`} component={EditCard}/>
+        <Route path={`${this.props.match.path}/edit`} component={props =><EditCard {...props} cardId={card.id} saveCardData={this.props.saveCardData}/>}/>
         </React.Fragment>
-      )
+      );
+    }
 }
  
 export default Card;
