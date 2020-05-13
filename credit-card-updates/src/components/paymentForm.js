@@ -22,7 +22,6 @@ export default function PaymentForm({saveCardData}) {
       }}
       validate={() => {
         let errors = {};
-        if (!username) errors.name = 'Enter a valid'
         if (meta.erroredInputs.cardNumber) {
           errors.cardNumber = meta.erroredInputs.cardNumber;
         }
@@ -47,7 +46,6 @@ export default function PaymentForm({saveCardData}) {
                       }) => (
                         <div>
                             <input type="text" placeholder="Name" {...field} />
-                            {(!username)? <ErrorMessage>Enter a valid name</ErrorMessage>:''}
                         </div>
                     )}
                 </Field>
